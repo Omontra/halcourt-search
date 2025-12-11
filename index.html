@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Specialist executive search for senior Data, Analytics and AI professionals. Trusted by VCs and high-growth technology companies.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Halcourt Search | Executive Search for Data, Analytics & AI Leaders">
+  <meta property="og:description" content="Specialist executive search for senior Data, Analytics and AI professionals. Trusted by VCs and high-growth technology companies.">
+  <meta property="og:image" content="/images/og-image.jpg">
+  <meta property="og:url" content="https://halcourtsearch.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Halcourt Search | Executive Search for Data, Analytics & AI Leaders">
+  <meta name="twitter:description" content="Specialist executive search for senior Data, Analytics and AI professionals.">
+  <meta name="twitter:image" content="/images/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://halcourtsearch.com">
+  
+  <title>Halcourt Search | Executive Search for Data, Analytics & AI Leaders</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <!-- Header -->
+  <header class="header header--transparent">
+    <div class="container">
+      <div class="header__inner">
+        <a href="/" class="header__logo">
+          <img src="images/logo.png" alt="Halcourt Search">
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/" class="nav__link nav__link--active">Home</a>
+          <a href="expertise.html" class="nav__link">Expertise</a>
+          <a href="services.html" class="nav__link">Services</a>
+          <a href="about.html" class="nav__link">About</a>
+          <a href="contact.html" class="nav__link">Contact Us</a>
+        </nav>
+        
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="menu-toggle__line"></span>
+          <span class="menu-toggle__line"></span>
+          <span class="menu-toggle__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="/" class="mobile-nav__link mobile-nav__link--active">Home</a>
+    <a href="expertise.html" class="mobile-nav__link">Expertise</a>
+    <a href="services.html" class="mobile-nav__link">Services</a>
+    <a href="about.html" class="mobile-nav__link">About</a>
+    <a href="contact.html" class="mobile-nav__link">Contact Us</a>
+  </nav>
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Converging paths SVG -->
+      <svg class="hero__paths" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Glow filter for balls -->
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <filter id="glowStrong" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        <!-- Path 1 - Cyan/Teal - converges to lower-right corner -->
+        <path id="path1" class="hero__path hero__path--1" 
+              d="M-100,200 Q500,300 1000,550 Q1400,750 1900,1050" 
+              fill="none" 
+              stroke="rgba(56,189,248,0.3)" 
+              stroke-width="1.5" 
+              stroke-linecap="round"/>
+        <circle class="hero__ball hero__ball--1" r="6" fill="rgba(56,189,248,0.9)" filter="url(#glow)">
+          <animateMotion dur="18s" repeatCount="indefinite">
+            <mpath href="#path1"/>
+          </animateMotion>
+        </circle>
+        
+        <!-- Path 2 - Purple/Violet -->
+        <path id="path2" class="hero__path hero__path--2" 
+              d="M-100,80 Q450,200 900,450 Q1350,680 1900,1050" 
+              fill="none" 
+              stroke="rgba(168,85,247,0.25)" 
+              stroke-width="1" 
+              stroke-linecap="round"/>
+        <circle class="hero__ball hero__ball--2" r="5" fill="rgba(168,85,247,0.85)" filter="url(#glow)">
+          <animateMotion dur="22s" repeatCount="indefinite">
+            <mpath href="#path2"/>
+          </animateMotion>
+        </circle>
+        
+        <!-- Path 3 - Blue (main/brightest) -->
+        <path id="path3" class="hero__path hero__path--3" 
+              d="M250,-80 Q600,150 1050,420 Q1450,680 1900,1050" 
+              fill="none" 
+              stroke="rgba(59,130,246,0.35)" 
+              stroke-width="1.5" 
+              stroke-linecap="round"/>
+        <circle class="hero__ball hero__ball--3" r="8" fill="rgba(59,130,246,0.95)" filter="url(#glowStrong)">
+          <animateMotion dur="16s" repeatCount="indefinite">
+            <mpath href="#path3"/>
+          </animateMotion>
+        </circle>
+        
+        <!-- Path 4 - Pink/Magenta -->
+        <path id="path4" class="hero__path hero__path--4" 
+              d="M700,-80 Q900,180 1200,450 Q1550,720 1900,1050" 
+              fill="none" 
+              stroke="rgba(236,72,153,0.22)" 
+              stroke-width="1" 
+              stroke-linecap="round"/>
+        <circle class="hero__ball hero__ball--4" r="4" fill="rgba(236,72,153,0.85)" filter="url(#glow)">
+          <animateMotion dur="25s" repeatCount="indefinite">
+            <mpath href="#path4"/>
+          </animateMotion>
+        </circle>
+        
+        <!-- Path 5 - White/Silver -->
+        <path id="path5" class="hero__path hero__path--5" 
+              d="M1100,-80 Q1250,200 1450,480 Q1650,760 1900,1050" 
+              fill="none" 
+              stroke="rgba(226,232,240,0.2)" 
+              stroke-width="1" 
+              stroke-linecap="round"/>
+        <circle class="hero__ball hero__ball--5" r="5" fill="rgba(226,232,240,0.9)" filter="url(#glow)">
+          <animateMotion dur="20s" repeatCount="indefinite">
+            <mpath href="#path5"/>
+          </animateMotion>
+        </circle>
+        
+        <!-- Convergence point glow (lower-right corner) -->
+        <circle class="hero__path-point" 
+                cx="1900" 
+                cy="1050" 
+                r="20" 
+                fill="rgba(59,130,246,0.3)"
+                filter="url(#glowStrong)"/>
+        <circle class="hero__path-point hero__path-point--inner" 
+                cx="1900" 
+                cy="1050" 
+                r="8" 
+                fill="rgba(255,255,255,0.5)"/>
+      </svg>
+      
+      <div class="hero__background"></div>
+      <div class="hero__shapes">
+        <div class="hero__shape hero__shape--1"></div>
+        <div class="hero__shape hero__shape--2"></div>
+        <div class="hero__shape hero__shape--3"></div>
+      </div>
+      
+      <!-- Drop ball that falls to "How We Work" section -->
+      <div class="hero__drop-ball" id="dropBall"></div>
+      
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__label">Executive Search</p>
+          <h1 class="hero__title">Find exceptional Data &amp; AI leadership talent</h1>
+          <p class="hero__subtitle">Specialist executive search for senior Data, Analytics and AI professionals. Trusted by VCs and high-growth technology companies.</p>
+          <div class="hero__actions">
+            <a href="contact.html" class="btn btn--white btn--lg">Start a conversation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- How We Work Section -->
+    <section class="section">
+      <div class="container">
+        <div class="split">
+          <div class="split__media">
+            <div class="split__image-wrapper">
+              <img src="https://hwwpqpisepbxnwliyqjr.supabase.co/storage/v1/object/public/halcourt-images/website-homepage/andrew-neel-QLqNalPe0RA-unsplash.jpg" alt="Professional workspace representing our innovative approach" class="split__image">
+              <!-- Stat badge -->
+              <div class="stat-badge">
+                <span class="stat-badge__number">95%</span>
+                <span class="stat-badge__label">Success rate</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="split__content">
+            <p class="label">How we work</p>
+            <h2>Innovative approach to executive search</h2>
+            <p class="lead">We combine deep market knowledge with a rigorous, proven methodology to deliver exceptional results for our clients.</p>
+            
+            <ul class="check-list">
+              <li class="check-list__item">
+                <svg class="check-list__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Our client is a systematic variable</strong>
+                  <p>Every engagement is tailored to your unique culture, needs, and success criteria.</p>
+                </div>
+              </li>
+              <li class="check-list__item">
+                <svg class="check-list__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>We value more than work-life balance</strong>
+                  <p>Long-term fit and career satisfaction drive our candidate selection process.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Our Story Section -->
+    <section class="section section--navy">
+      <div class="container">
+        <div class="split split--reverse">
+          <div class="split__media">
+            <div class="split__image-wrapper">
+              <img src="https://hwwpqpisepbxnwliyqjr.supabase.co/storage/v1/object/public/halcourt-images/website-homepage/george-prentzas-SRFG7iwktDk-unsplash.jpg" alt="Our team's journey in executive search" class="split__image">
+            </div>
+          </div>
+          
+          <div class="split__content">
+            <p class="label">Our story</p>
+            <h2>Our journey began 10 years ago</h2>
+            <p>Built on deep expertise in technology recruitment and a commitment to exceptional service. We've grown by focusing exclusively on Data, Analytics, and AI leadership roles.</p>
+            <a href="about.html" class="btn btn--white">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section section--navy">
+      <div class="container">
+        <div class="cta">
+          <h2 class="cta__title">Ready to find your next leader?</h2>
+          <p class="cta__text">Let's discuss how we can help you build an exceptional Data &amp; AI leadership team.</p>
+          <a href="contact.html" class="btn btn--white btn--lg">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="images/logo.png" alt="Halcourt Search" class="footer__logo">
+          <p class="footer__text">Specialist executive search for senior Data, Analytics and AI professionals. Connecting exceptional talent with ambitious organisations.</p>
+        </div>
+        
+        <div class="footer__nav">
+          <h4 class="footer__title">Navigation</h4>
+          <div class="footer__links">
+            <a href="/" class="footer__link">Home</a>
+            <a href="expertise.html" class="footer__link">Expertise</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="about.html" class="footer__link">About</a>
+            <a href="contact.html" class="footer__link">Contact Us</a>
+          </div>
+        </div>
+        
+        <div class="footer__contact">
+          <h4 class="footer__title">Contact</h4>
+          <div class="footer__links">
+            <a href="mailto:info@halcourtsearch.com" class="footer__link">info@halcourtsearch.com</a>
+            <a href="https://linkedin.com/company/halcourt-search" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <span class="current-year">2025</span> Halcourt Search Ltd. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html" class="footer__legal-link">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
