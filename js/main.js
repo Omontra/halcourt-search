@@ -400,6 +400,12 @@
   }
 
   function showFormSuccess(form) {
+    // Show toast notification
+    if (window.Toast) {
+      Toast.success('Message sent!', 'Thank you for reaching out. We\'ll be in touch within 24 hours.');
+    }
+    
+    // Also show inline success message
     const successMessage = document.createElement('div');
     successMessage.className = 'form__success';
     successMessage.innerHTML = '<strong>Thank you!</strong><br>Your message has been sent. We\'ll be in touch soon.';
@@ -409,6 +415,11 @@
   }
 
   function showFormError(form, message) {
+    // Show toast notification
+    if (window.Toast) {
+      Toast.error('Error', message);
+    }
+    
     // Remove existing error if any
     const existingError = form.querySelector('.form__error--global');
     if (existingError) {
@@ -456,5 +467,173 @@
   yearElements.forEach(function(el) {
     el.textContent = currentYear;
   });
+
+  /* -------------------------------------------------------------------------
+     Toast Notification System
+     ------------------------------------------------------------------------- */
+  
+  const Toast = {
+    container: null,
+    
+    init: function() {
+      this.container = document.getElementById('toast-container');
+    },
+    
+    show: function(options) {
+      var type = options.type || 'info';
+      var title = options.title;
+      var message = options.message;
+      var duration = options.duration !== undefined ? options.duration : 5000;
+      
+      if (!this.container) this.init();
+      if (!this.container) return;
+      
+      var icons = {
+        success: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+        error: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>',
+        info: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e3a5f" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>'
+      };
+      
+      var toast = document.createElement('div');
+      toast.className = 'toast toast--' + type;
+      toast.innerHTML = 
+        '<div class="toast__icon">' + icons[type] + '</div>' +
+        '<div class="toast__content">' +
+          '<div class="toast__title">' + title + '</div>' +
+          (message ? '<div class="toast__message">' + message + '</div>' : '') +
+        '</div>' +
+        '<button class="toast__close" aria-label="Close">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+        '</button>';
+      
+      this.container.appendChild(toast);
+      
+      var self = this;
+      
+      // Trigger animation
+      requestAnimationFrame(function() {
+        toast.classList.add('is-visible');
+      });
+      
+      // Close button
+      toast.querySelector('.toast__close').addEventListener('click', function() {
+        self.hide(toast);
+      });
+      
+      // Auto-hide
+      if (duration) {
+        setTimeout(function() {
+          self.hide(toast);
+        }, duration);
+      }
+      
+      return toast;
+    },
+    
+    hide: function(toast) {
+      toast.classList.remove('is-visible');
+      setTimeout(function() {
+        if (toast.parentNode) {
+          toast.remove();
+        }
+      }, 300);
+    },
+    
+    success: function(title, message) {
+      return this.show({ type: 'success', title: title, message: message });
+    },
+    
+    error: function(title, message) {
+      return this.show({ type: 'error', title: title, message: message });
+    },
+    
+    info: function(title, message) {
+      return this.show({ type: 'info', title: title, message: message });
+    }
+  };
+  
+  // Make Toast globally accessible
+  window.Toast = Toast;
+  
+  // Initialize Toast
+  Toast.init();
+
+  /* -------------------------------------------------------------------------
+     Cookie Consent Management
+     ------------------------------------------------------------------------- */
+  
+  const CookieConsent = {
+    banner: null,
+    
+    init: function() {
+      this.banner = document.getElementById('cookie-banner');
+      var acceptBtn = document.getElementById('cookie-accept');
+      var declineBtn = document.getElementById('cookie-decline');
+      
+      if (!this.banner) return;
+      
+      var self = this;
+      
+      // Check if user has already made a choice
+      var consent = localStorage.getItem('cookie-consent');
+      if (!consent) {
+        setTimeout(function() {
+          self.banner.classList.add('is-visible');
+        }, 1500);
+      }
+      
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+          self.setConsent('accepted');
+          self.banner.classList.remove('is-visible');
+          self.loadAnalytics();
+          if (window.Toast) {
+            Toast.success('Preferences saved', 'Thank you for accepting cookies.');
+          }
+        });
+      }
+      
+      if (declineBtn) {
+        declineBtn.addEventListener('click', function() {
+          self.setConsent('declined');
+          self.banner.classList.remove('is-visible');
+          if (window.Toast) {
+            Toast.info('Preferences saved', 'You can change this anytime in our privacy policy.');
+          }
+        });
+      }
+      
+      // If already accepted, load analytics
+      if (consent === 'accepted') {
+        this.loadAnalytics();
+      }
+    },
+    
+    setConsent: function(value) {
+      localStorage.setItem('cookie-consent', value);
+      localStorage.setItem('cookie-consent-date', new Date().toISOString());
+    },
+    
+    loadAnalytics: function() {
+      // Google Analytics - Replace G-XXXXXXXXXX with your actual Measurement ID
+      // Uncomment the following when you have your GA4 ID:
+      /*
+      if (typeof gtag === 'undefined') {
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+        script.async = true;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+      }
+      */
+    }
+  };
+  
+  // Initialize Cookie Consent
+  CookieConsent.init();
 
 })();
