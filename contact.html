@@ -82,10 +82,11 @@
               <!-- TODO: Set up form submission service (Formspree, Web3Forms, or custom API) -->
               <!-- Replace action="#" with your form endpoint -->
 
-              <!-- Honeypot field for spam prevention -->
-              <p class="hidden">
+              <!-- Honeypot fields for spam prevention (hidden from humans, bots will fill them) -->
+              <div class="hidden" aria-hidden="true">
                 <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-              </p>
+                <label>Website: <input name="website" type="url" tabindex="-1" autocomplete="off"></label>
+              </div>
               
               <div class="form__group">
                 <label for="name" class="form__label">Name *</label>

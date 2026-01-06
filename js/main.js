@@ -14,6 +14,9 @@
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
   const contactForm = document.getElementById('contactForm');
+  
+  // Anti-spam: Track page load time for timing-based detection
+  const pageLoadTime = Date.now();
 
   /* -------------------------------------------------------------------------
      Mobile Navigation
@@ -367,6 +370,24 @@
     form.querySelectorAll('.form__error').forEach(function(el) {
       el.remove();
     });
+    
+    // Anti-spam: Check honeypot fields (should be empty)
+    const honeypotFields = form.querySelectorAll('input[name="bot-field"], input[name="website"]');
+    for (let i = 0; i < honeypotFields.length; i++) {
+      if (honeypotFields[i].value) {
+        console.log('Spam detected: honeypot field filled');
+        return false;
+      }
+    }
+    
+    // Anti-spam: Check timing (bots submit too fast, require at least 3 seconds)
+    const timeSinceLoad = Date.now() - pageLoadTime;
+    const minimumTimeMs = 3000;
+    if (timeSinceLoad < minimumTimeMs) {
+      console.log('Spam detected: form submitted too quickly');
+      showFormError(form, 'Please wait a moment before submitting.');
+      return false;
+    }
     
     // Check required fields
     form.querySelectorAll('[required]').forEach(function(field) {
