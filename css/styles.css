@@ -250,7 +250,7 @@ p:last-child {
 
 @media (min-width: 992px) {
   .header__logo img {
-    height: 120px;
+    height: 250px;
   }
 }
 
@@ -658,8 +658,8 @@ p:last-child {
   position: relative;
   background-color: var(--deep-navy);
   background-image: url('https://hwwpqpisepbxnwliyqjr.supabase.co/storage/v1/object/public/halcourt-images/website-homepage/nasa-Q1p7bh3SHj8-unsplash.jpg');
-  background-size: cover;
-  background-position: center;
+  background-size: 105%;
+  background-position: center 35%;
   background-repeat: no-repeat;
 }
 
@@ -670,7 +670,7 @@ p:last-child {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8));
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.40));
   pointer-events: none;
 }
 
@@ -937,7 +937,7 @@ p:last-child {
 
 @media (min-width: 768px) {
   .founder {
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: var(--space-16);
   }
 }
@@ -1365,10 +1365,10 @@ p:last-child {
 }
 
 .footer__logo {
-  height: 50px;
+  height: 100px;
   width: auto;
   margin-bottom: var(--space-6);
-  filter: none;
+  filter: brightness(0) invert(1);
 }
 
 .footer__text {
