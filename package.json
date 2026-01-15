@@ -1,0 +1,15 @@
+{
+  "name": "halcourt-search",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static site with Vercel serverless functions for contact form",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "resend": "^3.4.0"
+  }
+}
+
+
+

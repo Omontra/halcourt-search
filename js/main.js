@@ -315,6 +315,7 @@
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.textContent;
+    const formAction = form.getAttribute('action');
 
     // Basic validation
     if (!validateForm(form)) {
@@ -327,16 +328,30 @@
 
     // Prepare form data
     const formData = new FormData(form);
-    const formAction = form.getAttribute('action');
+
+    // Honeypot check
+    if (formData.get('bot-field')) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      return;
+    }
+
+    const payload = {
+      name: formData.get('name') || '',
+      email: formData.get('email') || '',
+      phone: formData.get('phone') || '',
+      message: formData.get('message') || ''
+    };
 
     // Submit to form service endpoint
     if (formAction && formAction !== '#') {
       fetch(formAction, {
         method: 'POST',
-        body: formData,
         headers: {
-          'Accept': 'application/json'
-        }
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
       })
       .then(function(response) {
         if (response.ok) {
