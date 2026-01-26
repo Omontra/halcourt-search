@@ -1,8 +1,42 @@
 const { Resend } = require('resend');
+const Sentry = require('@sentry/node');
+
+// Initialize Sentry for error tracking
+if (process.env.SENTRY_DSN) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    environment: process.env.VERCEL_ENV || 'development',
+    tracesSampleRate: 0.1,
+  });
+}
+
+// Simple in-memory rate limiter (resets on cold start)
+const submissions = new Map();
+const RATE_LIMIT_WINDOW = 60000; // 1 minute
+const MAX_SUBMISSIONS = 3;
+
+/**
+ * Check if IP has exceeded rate limit
+ * @param {string} identifier - IP address or identifier
+ * @returns {boolean} true if within limit, false if exceeded
+ */
+function checkRateLimit(identifier) {
+  const now = Date.now();
+  const userSubmissions = submissions.get(identifier) || [];
+  const recentSubmissions = userSubmissions.filter(time => now - time < RATE_LIMIT_WINDOW);
+  
+  if (recentSubmissions.length >= MAX_SUBMISSIONS) {
+    return false;
+  }
+  
+  recentSubmissions.push(now);
+  submissions.set(identifier, recentSubmissions);
+  return true;
+}
 
 /**
  * Contact form handler
- * Expects JSON: { name, email, phone, message }
+ * Expects JSON: { name, email, phone, message, bot-field }
  * Uses environment:
  * - RESEND_API_KEY
  * - CONTACT_FROM_EMAIL
@@ -14,7 +48,18 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name = '', email = '', phone = '', message = '' } = req.body || {};
+  // Rate limiting by IP
+  const identifier = req.headers['x-forwarded-for'] || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(identifier)) {
+    return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+  }
+
+  const { name = '', email = '', phone = '', message = '', 'bot-field': botField = '' } = req.body || {};
+
+  // Honeypot check
+  if (botField) {
+    return res.status(400).json({ error: 'Invalid submission' });
+  }
 
   if (!email || !message) {
     return res.status(400).json({ error: 'Email and message are required' });
@@ -122,6 +167,21 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Contact form send error:', error);
+    
+    // Capture exception in Sentry
+    if (process.env.SENTRY_DSN) {
+      Sentry.captureException(error, {
+        tags: {
+          function: 'contact-form',
+        },
+        extra: {
+          email: email,
+          hasName: !!name,
+        },
+      });
+      await Sentry.flush(2000);
+    }
+    
     return res.status(500).json({ error: 'Failed to send message' });
   }
 };
