@@ -1446,21 +1446,21 @@ p:last-child {
     text-align: center;
     justify-self: center;
     align-self: start;
-    margin-top: calc(var(--space-8) * -1);
+    margin-top: 0;
   }
 }
 
 .footer__logo {
   height: 160px;
   width: auto;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   filter: brightness(0) invert(1);
 }
 
 @media (max-width: 767px) {
   .footer__logo {
     height: 120px;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
   }
 }
 
@@ -1541,7 +1541,7 @@ p:last-child {
   
   .footer__brand {
     max-width: 100%;
-    margin: calc(var(--space-8) * -1) auto var(--space-8);
+    margin: 0 auto var(--space-8);
     padding-bottom: var(--space-8);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
