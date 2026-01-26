@@ -65,34 +65,63 @@ This document contains all the copy for the website. Update content here first, 
 ### Functional Specialisms
 **Label:** What we do
 
-**Headline:** Functional specialisms
+**Headline:** Three functional specialisms. One integrated value chain
 
-**Subtitle:** We focus exclusively on senior leadership roles across three interconnected disciplines.
+**Subtitle:** We partner with investors and executive teams to appoint senior leaders across three interconnected disciplines that sit at the heart of modern value creation.
 
 **Data:**
-Chief Data Officers, VPs of Data, Heads of Data Engineering, and senior data leadership roles that drive strategic data initiatives.
+Senior data leaders accountable for platforms, governance, and the foundations that enable analytics and AI at scale.
+- Chief Data Officer
+- VP of Data
+- Head of Data
 
 **Analytics:**
-VPs of Analytics, Heads of Business Intelligence, Directors of Insights, and analytical leaders who transform data into business value.
+Analytics leaders who turn data into insight and decision support across commercial and operational functions.
+- VP of Analytics
+- Director of Analytics
+- Head of Business Intelligence & Insights
 
 **Artificial Intelligence:**
-Heads of AI, VPs of Machine Learning, Chief AI Officers, and technical leaders building the next generation of intelligent systems.
+AI leaders focussed on delivering, scaling, and productising machine-learning capabilities within products and operations.
+- AI Delivery Lead
+- Machine Learning Platform Lead
+- AI Product Lead
+
+### Leadership
+**Label:** What we do
+
+**Headline:** Leadership that enables growth
+
+**Subtitle:** We partner with investors and executive teams to appoint technology and operating leaders, ensuring platforms, governance and execution align to growth.
+
+**Technology Leadership:**
+Senior technology leaders responsible for platform strategy, engineering execution, and secure, scalable systems.
+- Chief Technology Officer
+- Chief Information Officer
+- Chief Information Security Officer
+- Director of Technology
+
+**Operating Partners & Advisors:**
+Operating partners and advisors who work with investors and leadership teams to accelerate execution and deliver value creation.
+- Operating Partner – Data & AI
+- Technology Operating Partner
+- Digital / Data Value Creation Partner
 
 ### Sectors
-**Label:** Sectors
+**Label:** Industries
 
-**Headline:** Industries we serve
+**Headline:** Who we work with
 
-**Subtitle:** Our network spans the investment and technology landscape.
+**Subtitle:** Our network covers the space where investment meets technology.
+
+**Investment Firms:**
+Venture capital and private equity firms building internal data capabilities or supporting portfolio talent needs.
 
 **VC & PE Portfolio Companies:**
 Working with investor-backed businesses at all stages of growth, from Series A through to pre-IPO and beyond.
 
 **High-Growth Technology:**
 Scaling technology companies that need exceptional data and AI leadership to maintain competitive advantage.
-
-**Investment Firms:**
-Venture capital and private equity firms building internal data capabilities or supporting portfolio talent needs.
 
 ### Seniority Levels
 **Label:** Seniority

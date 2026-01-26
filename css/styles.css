@@ -658,9 +658,21 @@ p:last-child {
   position: relative;
   background-color: var(--deep-navy);
   background-image: url('https://hwwpqpisepbxnwliyqjr.supabase.co/storage/v1/object/public/halcourt-images/website-homepage/nasa-Q1p7bh3SHj8-unsplash.jpg');
-  background-size: 105%;
-  background-position: center 35%;
+  background-size: cover;
+  background-position: center 50%;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+  .page-hero--space {
+    background-position: center 50%;
+  }
+}
+
+@media (max-width: 320px) {
+  .page-hero--space {
+    background-position: center 50%;
+  }
 }
 
 .page-hero--space::before {
@@ -880,6 +892,21 @@ p:last-child {
   margin-top: var(--space-4);
 }
 
+/* Mobile-only centering for specific split content sections */
+@media (max-width: 767px) {
+  .split__content--center-mobile .label {
+    text-align: center;
+  }
+  
+  .split__content--center-mobile h2 {
+    text-align: center;
+  }
+  
+  .split__content--center-mobile .mt-8 {
+    text-align: center;
+  }
+}
+
 /* Image wrapper with stat badge positioning */
 .split__image-wrapper {
   position: relative;
@@ -1053,7 +1080,7 @@ p:last-child {
   }
   
   .split--services-intro .split__image {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 2;
     object-fit: cover;
   }
   
@@ -1411,16 +1438,33 @@ p:last-child {
   max-width: 300px;
 }
 
+@media (min-width: 768px) {
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-self: center;
+    align-self: start;
+    margin-top: 0;
+  }
+  
+  .footer__logo {
+    transform: translateY(calc(var(--space-12) * -1));
+  }
+}
+
 .footer__logo {
-  height: 160px;
+  height: 120px;
   width: auto;
-  margin-bottom: var(--space-4);
+  margin-bottom: 0;
   filter: brightness(0) invert(1);
 }
 
 @media (max-width: 767px) {
   .footer__logo {
     height: 120px;
+    margin-bottom: 0;
   }
 }
 
@@ -1428,6 +1472,7 @@ p:last-child {
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.7);
   line-height: var(--leading-relaxed);
+  margin-top: calc(var(--space-2) * -1);
 }
 
 .footer__title {
