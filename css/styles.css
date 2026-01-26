@@ -1450,7 +1450,7 @@ p:last-child {
   }
   
   .footer__logo {
-    transform: translateY(calc(var(--space-12) * -1));
+    transform: translateY(calc(var(--space-4) * -1));
   }
 }
 
@@ -1472,7 +1472,7 @@ p:last-child {
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.7);
   line-height: var(--leading-relaxed);
-  margin-top: calc(var(--space-2) * -1);
+  margin-top: calc(var(--space-1) * -1);
 }
 
 .footer__title {
