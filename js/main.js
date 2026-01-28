@@ -14,6 +14,9 @@
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
   const contactForm = document.getElementById('contactForm');
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAcceptButton = document.getElementById('cookie-accept');
+  const cookieDeclineButton = document.getElementById('cookie-decline');
 
   /* -------------------------------------------------------------------------
      Mobile Navigation
@@ -65,6 +68,66 @@
       }
     });
   }
+
+  /* -------------------------------------------------------------------------
+    Cookie Consent
+    ------------------------------------------------------------------------- */
+
+  const COOKIE_CONSENT_STORAGE_KEY = 'cookieConsent';
+  const COOKIE_CONSENT_ACCEPTED_VALUE = 'accepted';
+  const COOKIE_CONSENT_DECLINED_VALUE = 'declined';
+  const COOKIE_CONSENT_ACCEPTED_EVENT_NAME = 'halcourt:cookie-consent-accepted';
+
+  function getCookieConsentValue() {
+    try {
+      return localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY) || '';
+    } catch (err) {
+      return '';
+    }
+  }
+
+  function setCookieConsentValue(consentValue) {
+    try {
+      localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, consentValue);
+    } catch (err) {
+      return;
+    }
+  }
+
+  function hideCookieBanner() {
+    if (!cookieBanner) return;
+    cookieBanner.style.display = 'none';
+  }
+
+  function showCookieBanner() {
+    if (!cookieBanner) return;
+    cookieBanner.style.display = '';
+  }
+
+  function handleCookieAccept() {
+    setCookieConsentValue(COOKIE_CONSENT_ACCEPTED_VALUE);
+    hideCookieBanner();
+    window.dispatchEvent(new Event(COOKIE_CONSENT_ACCEPTED_EVENT_NAME));
+  }
+
+  function handleCookieDecline() {
+    setCookieConsentValue(COOKIE_CONSENT_DECLINED_VALUE);
+    hideCookieBanner();
+  }
+
+  function initializeCookieConsent() {
+    if (!cookieBanner || !cookieAcceptButton || !cookieDeclineButton) return;
+    const consentValue = getCookieConsentValue();
+    if (consentValue === COOKIE_CONSENT_ACCEPTED_VALUE || consentValue === COOKIE_CONSENT_DECLINED_VALUE) {
+      hideCookieBanner();
+      return;
+    }
+    showCookieBanner();
+    cookieAcceptButton.addEventListener('click', handleCookieAccept);
+    cookieDeclineButton.addEventListener('click', handleCookieDecline);
+  }
+
+  initializeCookieConsent();
 
   /* -------------------------------------------------------------------------
      Header Scroll Effect
