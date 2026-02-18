@@ -241,7 +241,7 @@ p:last-child {
 }
 
 .header__logo img {
-  height: 100px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(15%) sepia(34%) saturate(1821%) hue-rotate(209deg) brightness(93%) contrast(93%);
@@ -250,7 +250,7 @@ p:last-child {
 
 @media (min-width: 992px) {
   .header__logo img {
-    height: 250px;
+    height: 80px;
   }
 }
 
