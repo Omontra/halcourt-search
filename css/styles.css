@@ -1354,6 +1354,12 @@ p:last-child {
   display: none !important;
 }
 
+/* Cloudflare Turnstile widget */
+.cf-turnstile {
+  position: relative;
+  z-index: 1;
+}
+
 /* ==========================================================================
    CTA SECTION
    ========================================================================== */
