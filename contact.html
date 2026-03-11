@@ -24,6 +24,9 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
   
@@ -85,6 +88,9 @@
               <p class="hidden">
                 <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
               </p>
+
+              <!-- Timing check (set by JS on page load) -->
+              <input type="hidden" name="_loadedAt" id="formLoadedAt">
               
               <div class="form__group">
                 <label for="name" class="form__label">Name *</label>
@@ -106,6 +112,9 @@
                 <textarea id="message" name="message" class="form__textarea" required placeholder="Tell us a bit about what you're looking for..."></textarea>
               </div>
               
+              <!-- Cloudflare Turnstile CAPTCHA -->
+              <div class="cf-turnstile mb-4" data-sitekey="0x4AAAAAACpKLn8jDdHdzLKmfF8vnS94kjQ" data-theme="light"></div>
+
               <button type="submit" class="btn btn--primary btn--lg">Send message</button>
             </form>
           </div>

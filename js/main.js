@@ -370,6 +370,12 @@
 
   if (contactForm) {
     contactForm.addEventListener('submit', handleFormSubmit);
+
+    // Set timing field on page load (for server-side timing check)
+    var loadedAtField = document.getElementById('formLoadedAt');
+    if (loadedAtField) {
+      loadedAtField.value = Date.now().toString();
+    }
   }
 
   function handleFormSubmit(e) {
@@ -399,11 +405,22 @@
       return;
     }
 
+    // Get Turnstile response token
+    const turnstileResponse = formData.get('cf-turnstile-response') || '';
+    if (!turnstileResponse) {
+      showFormError(form, 'Please complete the verification check.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      return;
+    }
+
     const payload = {
       name: formData.get('name') || '',
       email: formData.get('email') || '',
       phone: formData.get('phone') || '',
-      message: formData.get('message') || ''
+      message: formData.get('message') || '',
+      'cf-turnstile-response': turnstileResponse,
+      '_loadedAt': formData.get('_loadedAt') || ''
     };
 
     // Submit to form service endpoint
