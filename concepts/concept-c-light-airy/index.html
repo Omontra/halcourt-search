@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  Taylor Made Salcombe — Homepage Concept
+  CONCEPT C — "Light & Airy Modern"
+  Minimalist, contemporary, restrained luxury (Unique Homestays / onefinestay feel).
+
+  FONTS (Google Fonts):
+    - Hanken Grotesque  (primary UI / body / display sans)
+    - Fraunces           (subtle serif for editorial accents)
+
+  COLOURS:
+    --paper      #FCFBF8  crisp off-white background
+    --sand       #F2EEE6  very light warm sand
+    --ink        #2B3330  deep slate/charcoal text
+    --muted      #6B736E  secondary text
+    --sea-glass  #9FB8AE  soft sea-glass green (primary accent)
+    --sea-blue   #7FA1A8  soft sea-glass blue (secondary accent)
+    --line       #E6E2D9  hairline dividers
+
+  Self-contained: opens by double-clicking index.html. No build step.
+  ============================================================================
+-->
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taylor Made Salcombe — Luxury Holiday Homes in Salcombe &amp; The South Hams</title>
+  <meta name="description" content="A curated collection of luxury self-catering holiday homes in Salcombe & the South Hams, Devon — with a complimentary personal concierge and private in-home catering." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesque:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ====================== STICKY NAV ====================== -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="wordmark" href="#top" aria-label="Taylor Made Salcombe home">
+        <span class="wordmark__main">Taylor Made</span>
+        <span class="wordmark__sub">SALCOMBE</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#stays">Stays</a>
+        <a href="#concierge">Concierge</a>
+        <a href="#kitchen">Private Catering</a>
+        <a href="#locations">Locations</a>
+        <a href="#about">About</a>
+        <a href="#journal">Journal</a>
+        <a href="#list" class="nav__list-cta">List Your Property</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="#search" class="btn btn--solid btn--sm">Check dates</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Mobile">
+        <a href="#stays">Stays</a>
+        <a href="#concierge">Concierge</a>
+        <a href="#kitchen">Private Catering</a>
+        <a href="#locations">Locations</a>
+        <a href="#about">About</a>
+        <a href="#journal">Journal</a>
+        <a href="#list">List Your Property</a>
+        <a href="#search" class="btn btn--solid">Check dates</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ====================== HERO ====================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- placeholder — replace with Taylor Made photography -->
+      <div class="hero__media" role="img" aria-label="Sunlit Salcombe estuary with sailing boats at high tide">
+        <img
+          class="hero__img"
+          src="https://loremflickr.com/1600/1100/salcombe,devon,coast,sea"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+          onerror="this.style.display='none'"
+        />
+      </div>
+
+      <div class="container hero__inner">
+        <p class="eyebrow">Salcombe &amp; The South Hams, Devon</p>
+        <h1 id="hero-title" class="hero__title">
+          A curated collection of <em>luxury holiday homes</em> in Salcombe
+        </h1>
+        <p class="hero__lede">
+          Homes chosen for the way they feel as much as how they look — made for slow
+          mornings, sea swims, long lunches and unhurried time together.
+        </p>
+
+        <!-- EMBEDDED SEARCH -->
+        <form class="search" id="search" aria-label="Search available stays" onsubmit="return false;">
+          <div class="search__field">
+            <label for="loc">Location</label>
+            <select id="loc" name="location">
+              <option value="">All locations</option>
+              <option>Salcombe</option>
+              <option>Thurlestone</option>
+              <option>South Hams</option>
+            </select>
+          </div>
+
+          <div class="search__field">
+            <label for="arrive">Arrive</label>
+            <input type="date" id="arrive" name="arrive" />
+          </div>
+
+          <div class="search__field">
+            <label for="depart">Depart</label>
+            <input type="date" id="depart" name="depart" />
+          </div>
+
+          <div class="search__field search__field--guests">
+            <label for="guests">Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="16" value="2" inputmode="numeric" />
+          </div>
+
+          <button type="submit" class="btn btn--solid search__submit">
+            <span>Search stays</span>
+          </button>
+        </form>
+
+        <p class="hero__assurance">
+          Complimentary personal concierge with every stay · Private in-home catering available
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================== FEATURED STAYS ====================== -->
+    <section class="section" id="stays" aria-labelledby="stays-title">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">The Collection</p>
+            <h2 id="stays-title" class="section__title">Featured stays</h2>
+          </div>
+          <a href="#stays" class="link-arrow">View all homes <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="rail" role="list">
+
+          <!-- CARD 1 -->
+          <article class="card" role="listitem">
+            <div class="card__media">
+              <!-- placeholder — replace with Taylor Made photography -->
+              <img class="card__img" loading="lazy"
+                   src="https://loremflickr.com/700/560/interior,luxury,home?lock=11"
+                   alt="Bright open-plan living space at Hytti with estuary views"
+                   onerror="this.style.opacity=0" />
+              <button class="heart" type="button" aria-pressed="false" aria-label="Save Hytti to your shortlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 9 1.8 5.6 5 5.1 7 4.8 8.7 6 12 8.5 15.3 6 17 4.8 19 5.1c3.2.5 4.4 3.9 3 6.7C19.5 16.4 12 21 12 21z"/></svg>
+              </button>
+              <span class="badge badge--dog">Dog friendly</span>
+            </div>
+            <div class="card__body">
+              <div class="card__row">
+                <h3 class="card__name">Hytti</h3>
+                <span class="score">4.9 ★ <em>Exceptional</em></span>
+              </div>
+              <p class="card__loc">Salcombe</p>
+              <ul class="card__specs">
+                <li>Sleeps 6</li><li>3 bed</li><li>2 bath</li>
+              </ul>
+              <p class="card__price"><strong>From £2,100</strong> <span>/ week</span></p>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="card" role="listitem">
+            <div class="card__media">
+              <!-- placeholder — replace with Taylor Made photography -->
+              <img class="card__img" loading="lazy"
+                   src="https://loremflickr.com/700/560/interior,luxury,home?lock=22"
+                   alt="Calm coastal bedroom at Sea Chest with linen tones"
+                   onerror="this.style.opacity=0" />
+              <button class="heart" type="button" aria-pressed="false" aria-label="Save Sea Chest to your shortlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 9 1.8 5.6 5 5.1 7 4.8 8.7 6 12 8.5 15.3 6 17 4.8 19 5.1c3.2.5 4.4 3.9 3 6.7C19.5 16.4 12 21 12 21z"/></svg>
+              </button>
+            </div>
+            <div class="card__body">
+              <div class="card__row">
+                <h3 class="card__name">Sea Chest</h3>
+                <span class="score">4.8 ★ <em>Exceptional</em></span>
+              </div>
+              <p class="card__loc">Salcombe</p>
+              <ul class="card__specs">
+                <li>Sleeps 4</li><li>2 bed</li><li>2 bath</li>
+              </ul>
+              <p class="card__price"><strong>From £1,800</strong> <span>/ week</span></p>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="card" role="listitem">
+            <div class="card__media">
+              <!-- placeholder — replace with Taylor Made photography -->
+              <img class="card__img" loading="lazy"
+                   src="https://loremflickr.com/700/560/salcombe,devon,coast,sea?lock=33"
+                   alt="Four The Reach terrace overlooking the water at Thurlestone"
+                   onerror="this.style.opacity=0" />
+              <button class="heart" type="button" aria-pressed="false" aria-label="Save Four The Reach to your shortlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 9 1.8 5.6 5 5.1 7 4.8 8.7 6 12 8.5 15.3 6 17 4.8 19 5.1c3.2.5 4.4 3.9 3 6.7C19.5 16.4 12 21 12 21z"/></svg>
+              </button>
+            </div>
+            <div class="card__body">
+              <div class="card__row">
+                <h3 class="card__name">Four The Reach</h3>
+                <span class="score">5.0 ★ <em>Exceptional</em></span>
+              </div>
+              <p class="card__loc">Thurlestone</p>
+              <ul class="card__specs">
+                <li>Sleeps 8</li><li>4 bed</li><li>3 bath</li>
+              </ul>
+              <p class="card__price"><strong>From £3,100</strong> <span>/ week</span></p>
+            </div>
+          </article>
+
+          <!-- CARD 4 -->
+          <article class="card" role="listitem">
+            <div class="card__media">
+              <!-- placeholder — replace with Taylor Made photography -->
+              <img class="card__img" loading="lazy"
+                   src="https://loremflickr.com/700/560/interior,luxury,home?lock=44"
+                   alt="Summer Cottage sun room with garden views in the South Hams"
+                   onerror="this.style.opacity=0" />
+              <button class="heart" type="button" aria-pressed="false" aria-label="Save Summer Cottage to your shortlist">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 9 1.8 5.6 5 5.1 7 4.8 8.7 6 12 8.5 15.3 6 17 4.8 19 5.1c3.2.5 4.4 3.9 3 6.7C19.5 16.4 12 21 12 21z"/></svg>
+              </button>
+            </div>
+            <div class="card__body">
+              <div class="card__row">
+                <h3 class="card__name">Summer Cottage</h3>
+                <span class="score">4.9 ★ <em>Exceptional</em></span>
+              </div>
+              <p class="card__loc">South Hams</p>
+              <ul class="card__specs">
+                <li>Sleeps 6</li><li>4 bed</li><li>3 bath</li>
+              </ul>
+              <p class="card__price"><strong>From £1,450</strong> <span>/ week</span></p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONCIERGE ====================== -->
+    <section class="section concierge" id="concierge" aria-labelledby="concierge-title">
+      <div class="container concierge__grid">
+        <div class="concierge__media">
+          <!-- placeholder — replace with Taylor Made photography -->
+          <img loading="lazy"
+               src="https://loremflickr.com/780/900/interior,luxury,home,kitchen?lock=55"
+               alt="A private chef plating a course in a sunlit kitchen"
+               onerror="this.style.opacity=0" />
+        </div>
+
+        <div class="concierge__copy">
+          <p class="eyebrow">Complimentary with every stay</p>
+          <h2 id="concierge-title" class="section__title">Your personal concierge</h2>
+
+          <div class="concierge__lead">
+            <h3>Start with a private chef</h3>
+            <p>
+              The detail our guests remember most. Skilled local chefs cook in your
+              kitchen — from an easy first-night supper to a celebration tasting menu —
+              so the only thing on your plate is the view.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li><strong>Bespoke itineraries</strong> — shaped around your pace, your people, the tides.</li>
+            <li><strong>Restaurant reservations</strong> — the tables that are hard to get, quietly arranged.</li>
+            <li><strong>Boat days &amp; on-water time</strong> — skippered charters, paddleboards, sea swims.</li>
+            <li><strong>Curated experiences</strong> — foraging, sailing tuition, spa days and more.</li>
+          </ul>
+
+          <a href="#search" class="btn btn--solid">Plan with our concierge</a>
+          <p class="concierge__note">Founded by Harriet · 8+ years in luxury holiday rentals</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== THE SALCOMBE KITCHEN ====================== -->
+    <section class="section kitchen" id="kitchen" aria-labelledby="kitchen-title">
+      <div class="container kitchen__inner">
+        <p class="eyebrow eyebrow--center">Private in-home catering</p>
+        <h2 id="kitchen-title" class="section__title kitchen__title">The Salcombe Kitchen</h2>
+        <p class="kitchen__lede">
+          Local chefs cooking in your home — from a barefoot beach picnic to an
+          eight-course tasting menu. Seasonal, South Hams produce, served wherever
+          the day takes you.
+        </p>
+
+        <div class="kitchen__cards">
+          <div class="kitchen__card">
+            <span class="kitchen__num">01</span>
+            <h3>Beach picnics</h3>
+            <p>Hampers and hot-from-the-grill suppers, set up on the sand for you.</p>
+          </div>
+          <div class="kitchen__card">
+            <span class="kitchen__num">02</span>
+            <h3>Relaxed feasts</h3>
+            <p>Long-table sharing menus and slow Sunday lunches with friends.</p>
+          </div>
+          <div class="kitchen__card">
+            <span class="kitchen__num">03</span>
+            <h3>Tasting menus</h3>
+            <p>Up to eight courses, plated in your kitchen for the occasions that matter.</p>
+          </div>
+        </div>
+
+        <a href="#search" class="btn btn--outline">Explore The Salcombe Kitchen</a>
+      </div>
+    </section>
+
+    <!-- ====================== TRUST STRIP ====================== -->
+    <section class="section trust" id="about" aria-labelledby="trust-title">
+      <div class="container">
+        <h2 id="trust-title" class="section__title section__title--center">Guest stories</h2>
+
+        <div class="stories">
+          <figure class="story">
+            <blockquote>“We arrived to a fridge stocked just so, and a chef who cooked the best meal of our year. We have already rebooked.”</blockquote>
+            <figcaption>Eleanor — August 2025</figcaption>
+          </figure>
+          <figure class="story">
+            <blockquote>“Harriet thought of everything before we did. The house was beautiful, but the care around it is what made it.”</blockquote>
+            <figcaption>James — October 2025</figcaption>
+          </figure>
+          <figure class="story">
+            <blockquote>“Slow mornings, a boat day arranged in minutes, and supper waiting when we came home salty and happy.”</blockquote>
+            <figcaption>Priya — May 2026</figcaption>
+          </figure>
+        </div>
+
+        <div class="press" aria-label="Press and memberships">
+          <span class="press__label">As featured in</span>
+          <ul class="press__logos">
+            <li>Condé Nast Traveller</li>
+            <li>The Times</li>
+            <li>PASC Member</li>
+            <li>Visit Devon</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== JOURNAL ====================== -->
+    <section class="section journal" id="journal" aria-labelledby="journal-title">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">The Journal</p>
+            <h2 id="journal-title" class="section__title">Notes from the South Hams</h2>
+          </div>
+          <a href="#journal" class="link-arrow">Read the journal <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="journal__grid">
+          <article class="post">
+            <a href="#journal" class="post__link">
+              <div class="post__media">
+                <!-- placeholder — replace with Taylor Made photography -->
+                <img loading="lazy" src="https://loremflickr.com/600/440/salcombe,devon,coast?lock=61"
+                     alt="Quiet cove at dawn near Salcombe" onerror="this.style.opacity=0" />
+              </div>
+              <p class="post__cat">Where to swim</p>
+              <h3 class="post__title">Six quiet coves for an early morning sea swim</h3>
+              <p class="post__meta">5 min read</p>
+            </a>
+          </article>
+
+          <article class="post">
+            <a href="#journal" class="post__link">
+              <div class="post__media">
+                <!-- placeholder — replace with Taylor Made photography -->
+                <img loading="lazy" src="https://loremflickr.com/600/440/devon,food,restaurant?lock=62"
+                     alt="A coastal lunch table laid for guests" onerror="this.style.opacity=0" />
+              </div>
+              <p class="post__cat">Long lunches</p>
+              <h3 class="post__title">The unhurried guide to lunch in Salcombe</h3>
+              <p class="post__meta">7 min read</p>
+            </a>
+          </article>
+
+          <article class="post">
+            <a href="#journal" class="post__link">
+              <div class="post__media">
+                <!-- placeholder — replace with Taylor Made photography -->
+                <img loading="lazy" src="https://loremflickr.com/600/440/devon,coast,boat?lock=63"
+                     alt="Sailing boats on the estuary on a bright day" onerror="this.style.opacity=0" />
+              </div>
+              <p class="post__cat">On the water</p>
+              <h3 class="post__title">Planning the perfect boat day on the estuary</h3>
+              <p class="post__meta">6 min read</p>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== LOCATIONS BAND ====================== -->
+    <section class="section locations" id="locations" aria-labelledby="loc-title">
+      <div class="container locations__inner">
+        <div>
+          <p class="eyebrow">Where we are</p>
+          <h2 id="loc-title" class="section__title">Salcombe · Thurlestone · South Hams</h2>
+          <p class="locations__lede">A small, hand-chosen collection across the most beautiful corners of South Devon — coastal, characterful and quietly looked after.</p>
+        </div>
+        <ul class="locations__list">
+          <li><span>Salcombe</span><a href="#stays">View homes →</a></li>
+          <li><span>Thurlestone</span><a href="#stays">View homes →</a></li>
+          <li><span>South Hams</span><a href="#stays">View homes →</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer" id="list">
+    <div class="container footer__grid">
+
+      <div class="footer__brand">
+        <a class="wordmark wordmark--light" href="#top">
+          <span class="wordmark__main">Taylor Made</span>
+          <span class="wordmark__sub">SALCOMBE</span>
+        </a>
+        <p>Luxury self-catering homes with a complimentary personal concierge and private in-home catering, across Salcombe &amp; the South Hams.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Explore">
+        <h3>Explore</h3>
+        <a href="#stays">Stays</a>
+        <a href="#concierge">Concierge</a>
+        <a href="#kitchen">Private Catering</a>
+        <a href="#locations">Locations</a>
+        <a href="#journal">Journal</a>
+        <a href="#list">List Your Property</a>
+      </nav>
+
+      <div class="footer__col">
+        <h3>Contact</h3>
+        <a href="tel:+441548000000">+44 (0)1548 000 000</a>
+        <a href="mailto:hello@taylormadesalcombe.co.uk">hello@taylormadesalcombe.co.uk</a>
+        <p class="footer__addr">Salcombe, South Hams, Devon</p>
+        <div class="footer__social" aria-label="Social media">
+          <a href="#journal" aria-label="Instagram">Instagram</a>
+          <a href="#journal" aria-label="Pinterest">Pinterest</a>
+        </div>
+      </div>
+
+      <div class="footer__col footer__news">
+        <h3>The slow letter</h3>
+        <p>New homes, seasonal notes and quiet recommendations — a few times a year.</p>
+        <form class="news" aria-label="Newsletter sign-up" onsubmit="return false;">
+          <label class="sr-only" for="news-email">Email address</label>
+          <input type="email" id="news-email" name="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn--solid btn--sm">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="container footer__base">
+      <p>© 2026 Taylor Made Salcombe. All rights reserved.</p>
+      <p class="footer__legal"><a href="#top">Privacy</a> · <a href="#top">Terms</a> · PASC Member</p>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky thumb-zone CTA -->
+  <a href="#search" class="thumb-cta">Check dates</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

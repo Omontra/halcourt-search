@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taylor Made Salcombe — Homepage Concepts</title>
+  <style>
+    :root { --ink:#16263a; --sand:#f6f1e7; --brass:#a9763f; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background:var(--sand); color:var(--ink); line-height:1.5; }
+    header { padding: 4rem 1.5rem 2rem; text-align:center; max-width:760px; margin:0 auto; }
+    h1 { font-size: 2rem; margin:0 0 .5rem; }
+    p.lead { color:#4a5568; margin:0 auto; max-width:60ch; }
+    .grid { display:grid; gap:1.5rem; padding:2rem 1.5rem 4rem; max-width:1100px; margin:0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card { display:block; text-decoration:none; color:inherit; background:#fff; border:1px solid #e2e2da;
+      border-radius:14px; overflow:hidden; transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(22,38,58,.14); }
+    .swatch { height:120px; display:flex; align-items:flex-end; padding:1rem; color:#fff; font-weight:600; }
+    .a { background: linear-gradient(135deg,#16263a,#a9763f); }
+    .b { background: linear-gradient(135deg,#0e1418,#c8a86b); }
+    .c { background: linear-gradient(135deg,#5e7e84,#f6f1e7); color:#16263a; }
+    .body { padding:1.1rem 1.2rem 1.4rem; }
+    .body h2 { margin:0 0 .35rem; font-size:1.15rem; }
+    .body p { margin:0; font-size:.92rem; color:#4a5568; }
+    .open { display:inline-block; margin-top:.9rem; font-weight:600; color:var(--brass); }
+    footer { text-align:center; color:#7a8597; padding:0 1.5rem 3rem; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Taylor Made Salcombe — Homepage Concepts</h1>
+    <p class="lead">Three art directions for the new guest website. Open each to compare. All are
+      self-contained, responsive prototypes with placeholder imagery and real copy.</p>
+  </header>
+  <div class="grid">
+    <a class="card" href="concept-a-editorial-coastal/index.html">
+      <div class="swatch a">A</div>
+      <div class="body">
+        <h2>Editorial Coastal</h2>
+        <p>Warm sand + marine navy + brass, refined serif (Fraunces), magazine-like asymmetry. The "quiet luxury" default.</p>
+        <span class="open">Open concept A →</span>
+      </div>
+    </a>
+    <a class="card" href="concept-b-cinematic-dark/index.html">
+      <div class="swatch b">B</div>
+      <div class="body">
+        <h2>Cinematic Dark</h2>
+        <p>Moody ink/charcoal + gold, Cormorant Garamond, full-bleed drama. Members'-club feel.</p>
+        <span class="open">Open concept B →</span>
+      </div>
+    </a>
+    <a class="card" href="concept-c-light-airy/index.html">
+      <div class="swatch c">C</div>
+      <div class="body">
+        <h2>Light &amp; Airy Modern</h2>
+        <p>Crisp white + sea-glass, Hanken Grotesque + Fraunces accents. Minimalist, restraint-as-luxury.</p>
+        <span class="open">Open concept C →</span>
+      </div>
+    </a>
+  </div>
+  <footer>Placeholder imagery — to be replaced with Taylor Made photography. Prototypes only.</footer>
+</body>
+</html>
