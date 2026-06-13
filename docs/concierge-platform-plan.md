@@ -154,7 +154,7 @@ and to maximise one-person velocity.
     integration so agents call them as tools; context-management for long guest histories.
 - **Data:** Postgres on **Supabase** (relational + Row-Level Security for multi-tenancy)
   + **pgvector** for semantic memory recall; Supabase Storage for docs/photos.
-- **Channels:** WhatsApp Business Platform via **Twilio** or **360dialog**; **Resend** for email.
+- **Channels (text-only — no voice):** **email** (Resend) + **messaging** (WhatsApp Business Platform via **Twilio**/**360dialog**, with SMS fallback) + the web guest portal. Voice/phone concierge is explicitly out of scope — every guest interaction is written, which keeps the brand voice consistent, gives the agents a clean text transcript to learn from, and is cheaper and simpler to build.
 - **Frontend:** **Next.js** operator console (PWA, mobile-first) + guest web portal, on **Vercel**.
 - **Eventing/scheduling:** **Inngest** or **Trigger.dev** for event-driven agent jobs and
   time-based triggers (T-minus pre-arrival, mid-stay check-in, post-stay review).
