@@ -173,8 +173,10 @@ preserve SEO equity.
   balance, **2% application fee** on GBV, card processing as operator pass-through, damage
   hold via pre-auth/waiver. PCI handled by Stripe Elements/Checkout; white-labelled to the
   site's CSS so the handoff feels seamless.
-- **Model:** start **concierge-led enquiry-to-booking** (fits the luxury norm and the
-  agentic concierge), architected so **instant-book** can switch on per property later.
+- **Model (locked):** **hybrid at launch** — **instant-book + online payment on select
+  properties**, **enquiry-to-booking on the rest**; both feed the concierge. The instant
+  path needs real-time availability + Stripe checkout + confirmation from launch (heavier
+  than pure enquiry); the enquiry path stays concierge-led.
 - **Mobile:** sticky thumb-zone "Check dates / Enquire" bar; one-tap WhatsApp; calendars
   that prevent invalid selection.
 
@@ -276,15 +278,28 @@ preserve SEO equity.
 
 ---
 
-## 17. Open questions
+## 17. Locked scope (decisions — 2026-06-13)
 
-1. Confirm **brand assets** — current logo, any defined colours/fonts to honour vs a refresh.
-2. **Photography** — is existing imagery high-res/rights-cleared, or do we re-shoot key homes?
-3. **Booking model at launch** — enquiry-to-booking only, or instant-book on select properties?
-4. **Reviews source** — Google, in-house, or both; do we import the existing testimonials?
-5. **Build sequence** — ship the website ahead of the full platform (with a lightweight
-   availability/enquiry backend), or in lockstep with Phase 1?
-6. **Scope** — Taylor Made-only first, or build the themeable multi-tenant guest surface now?
+| # | Decision | Choice | Implication |
+|---|---|---|---|
+| 1 | **Scope** | **Taylor Made bespoke** | Build a first-class standalone TM site. Keep code cleanly structured so it *could* be generalised to the SaaS guest surface later, but no multi-tenant overhead now. |
+| 2 | **Build sequence** | **Website first, light backend** | Launch ahead of the full platform with a minimal availability + enquiry + Stripe-deposit backend; wire to Concierge OS later. |
+| 3 | **Booking model** | **Instant-book on select properties + enquiry on the rest** | Hybrid: real-time availability + Stripe checkout + confirmation for instant homes from launch; concierge-led enquiry for the rest. |
+| 4 | **Brand** | **Refresh & elevate, keep equity** | Keep the name + "quiet luxury" voice; design a proper luxury system (typography, palette, components) to replace the generic Wix look. |
+| 5 | **Photography** | **Use existing, optimise** | Reuse current pro photos (rights-cleared), re-export at modern sizes/formats; upgrade hero homes later. |
+| 6 | **Reviews** | **In-house via the concierge post-stay flow** | First-party, owned reviews shown per-property (a gap no local rival fills). |
+
+**Implementation notes from these choices:**
+- **Reviews at launch will be thin** (the in-house flow needs stays to accrue). To avoid an
+  empty trust section, **seed launch with the existing dated testimonials as "guest stories"**
+  (unscored quotes) until first-party scored reviews build up — then switch the per-property
+  cards to live scores.
+- **Instant-book raises the "light backend" bar:** it must do real-time availability, a
+  Stripe payment + booking confirmation, and double-booking protection — not just capture an
+  enquiry. Plan the backend accordingly (this is effectively a slim slice of the platform's
+  booking + payments layer brought forward).
+- **Bespoke ≠ messy:** keep content in a CMS and booking/payments behind clean interfaces so
+  a future move to the themeable SaaS surface is a lift, not a rewrite.
 
 ---
 
