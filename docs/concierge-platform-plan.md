@@ -283,4 +283,88 @@ bar (measured by operator override rate, guest CSAT, and upsell revenue per book
 8. Stripe "extras" charge + a first supplier-booking tool.
 9. Eval harness; ramp shadow → autonomous-with-caps.
 10. Onboard design-partner operator for pilot.
-```
+
+---
+
+## 14. SaaS pricing & unit economics
+
+### Pricing philosophy
+
+Price on **value, not cost**. COGS is ~1-2% of the booking value flowing through the
+platform (see §"cost to run"), so cost-plus would leave almost all the value on the
+table. The product's value to a solo/boutique operator is twofold and large:
+
+1. **It replaces a hire.** A concierge/ops coordinator is a £25-40k/yr salary. Valet
+   lets one person run what previously needed a small team.
+2. **It grows revenue.** Anticipatory concierge + automated upsells lift ancillary
+   revenue per booking (industry tools claim 5-15%+), and better guest experience lifts
+   rebooking/referral.
+
+So we anchor to *"a fraction of a salary + a share of the upside,"* not to token spend.
+
+### Choosing the value metric
+
+| Candidate metric | Aligns with value? | Predictable? | Verdict |
+|---|---|---|---|
+| **Per property** | Scales with portfolio = the operator's growth | Yes | **Primary scaling metric** — familiar from PMS pricing, predictable |
+| Per booking | Penalises occupancy success; feels like nickel-and-diming as the headline | Volatile | Use only as **fair-use caps** per tier, not the headline price |
+| % of gross booking value | Strong value alignment | Opaque to operator | Avoid — operators resent paying % on revenue they'd earn anyway |
+| **% of concierge-driven ancillary revenue** | Captures *our* direct value-add; we win only when they earn more | Yes | **Value-capture upside** alongside the base |
+
+**Recommendation: a per-property base + a share of concierge-generated ancillary
+revenue.** The base is predictable and covers COGS with healthy margin; the rev-share
+aligns incentives and captures upside. Offer a flat all-in tier for operators who
+dislike rev-share.
+
+### Recommended tiers (GBP/month, billed annually; monthly +~20%)
+
+| Tier | Target | Per property /mo | Included | Ancillary rev-share |
+|---|---|---|---|---|
+| **Starter** | 1-5 properties, solo | **£49** | Concierge agent (email + messaging), guidebook, reviews, fair-use booking cap | 15% |
+| **Pro** *(recommended)* | 6-25 properties | **£39** | + Sales, Marketing & Owner agents, PMS/channel + Stripe + smart-lock integrations, dynamic-pricing hooks, multi-user | 10% |
+| **Scale** | 25+ / agencies | **custom (~£25-30)** | + white-label, priority support, SLA, onboarding concierge | 5-8% |
+
+- **Ancillary rev-share** applies only to extras the platform *generates and bills*
+  (chef, experiences, mid-stay cleans, early check-in, transfers) — never to room
+  revenue. Easy to justify: *"we only take a cut of money we made you that you
+  wouldn't have had."*
+- **Flat alternative:** any tier can swap the rev-share for a higher flat per-property
+  rate (e.g. Pro at £69/property, no rev-share) for operators who want one number.
+- **Onboarding:** waive the setup fee to reduce friction (vs the £100-250 industry
+  norm); offer a paid "white-glove migration" for larger portfolios.
+- **Free pilot** for the design-partner operator; thereafter a 30-day trial in shadow
+  mode (drafts only) so they feel the quality before paying.
+
+### Worked unit economics — the Taylor Made archetype
+
+15 properties, Pro tier, ~30 bookings/month in peak season, ~£150 concierge-driven
+ancillary spend per booking:
+
+| Line | Monthly (peak) |
+|---|---|
+| Base: 15 × £39 | **£585** |
+| Ancillary share: 10% × (£150 × 30) | **£450** |
+| **Revenue / operator** | **~£1,035** |
+| COGS (AI + WhatsApp + infra, from §cost) | **~£200-260** |
+| **Gross profit / margin** | **~£775-835 (~78-80%)** |
+
+Annualised, seasonality roughly halves the in-season figure, so think **~£6-8k
+revenue / operator / year at ~80% gross margin** for a 15-property operator — scaling
+with portfolio size and ancillary attach rate.
+
+### Why this lands with the buyer
+
+- **Cheaper than the alternative.** ~£585/mo base ≈ a fraction of a £25-40k concierge
+  salary, and the rev-share is self-funding (it only triggers on incremental revenue).
+- **Familiar shape.** Per-property pricing matches how operators already think about
+  PMS/guidebook costs (SuperControl, Touch Stay, etc.).
+- **Aligned.** The rev-share means we're paid to make them money, which is the whole
+  pitch — and it's a moat: switching away costs them the ancillary uplift.
+
+### Open pricing questions to validate with the design partner
+
+1. Real ancillary attach rate & average extra value per booking (drives rev-share viability).
+2. Rev-share vs flat — which do boutique operators actually prefer? (Test both.)
+3. Price elasticity at the per-property points above (is £39 too low for the value?).
+4. Whether to rebill pass-through costs (PMS, Stripe, smart locks) or leave them direct.
+5. Annual-vs-monthly mix and the right annual discount to drive commitment.
